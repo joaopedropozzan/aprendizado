@@ -1,16 +1,12 @@
 <?php
-require_once('../php/conexao.php');
-global $conexao, $id, $resultado;
-
+include_once('conexao.php');
 if(isset($_GET['id'])){
-    $stmt = $_GET['id'];
-    $stmt = $conexao->prepare("DELETE FROM * projeto WHERE id=?");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();//exec query
+    $id = $_GET['id'];
+    $stmt = $conexao->prepare("DELETE FROM projeto WHERE id = ?"); // prepara a query
+    $stmt->bind_param("i",$id);
+    $stmt->execute(); // executa a query
     $stmt->close();
-}else {
-    echo("nao eh possivel excluir sem o id");}
+}else{
+    echo "Não é possivel excluir um registro sem ID";
+}
 $conexao->close();
-header('Content-Type: application/json');
-echo json_encode($resultado);
-?>

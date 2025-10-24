@@ -1,16 +1,15 @@
 <?php
-include_once 'conexao.php';
 global $conexao;
-//As variaveis que eu irei receber por $_POST;
-$nome = 'Joao lindao';
-$usuario = 'joao@tomaaa.com';
-$senha = '123';
-$ativo = '1';
+include_once('conexao.php');
+// As variáveis que eu ireir receber por $_POST;
+$nome = "Giulio Lindo 2";
+$usuario = "foo@bla";
+$senha = "1234";
+$ativo = 1;
 
-
-$stmt = $conexao->prepare("INSERT INTO projeto(nome,usuario,senha,ativo) VALUES (?, ?, ?, ?)");
-$stmt->bind_param('sssi', $nome, $usuario, $senha, $ativo);
-$stmt->execute();
+$stmt = $conexao->prepare("INSERT INTO projeto(nome,usuario,senha,ativo) VALUES (?,?,?,?)"); // prepara a query
+$stmt->bind_param("sssi",$nome,$usuario,$senha,$ativo);
+$stmt->execute(); // executa a query
 $stmt->close();
-$conexao->close();
 
+$conexao->close();
