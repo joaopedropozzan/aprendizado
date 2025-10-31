@@ -42,14 +42,16 @@ async function alterar(){
     fd.append('senha', senha);
     fd.append('ativo', ativo);
 
+
     const retorno = await fetch("../php/projeto_final_alterar.php?id=" + id , {
         method: "POST",
         body: fd
     });
 
     const resposta = await retorno.json();
-    if(resposta.status == "ok"){
+    if(resposta.status === "ok"){
         alert('sucesso!' + resposta.mensagem);
+        window.location.href = '../home/'
     }else{
         alert('erro' + resposta.mensagem)
     }

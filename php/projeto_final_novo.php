@@ -13,6 +13,7 @@ $nome = $_POST['nome'];
 $usuario = $_POST['usuario'];
 $senha = $_POST['senha'];
 $ativo = $_POST['ativo'];
+//$kfeoqfoji
 
 $stmt = $conexao->prepare("INSERT INTO projeto(nome,usuario,senha,ativo) VALUES (?,?,?,?)"); // prepara a query
 $stmt->bind_param("sssi",$nome,$usuario,$senha,$ativo);
